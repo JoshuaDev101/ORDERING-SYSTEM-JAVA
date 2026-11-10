@@ -21,13 +21,50 @@ public class Main {
             System.out.print("Select a number: ");
             choice = scan.nextInt();
             scan.nextLine();
+
+
             switch (choice) {
                 case 1:
+                    int choice1;
+                   
+                    do { 
                     System.out.println("=====SYSTEM MENU=====");
                     System.out.println("1. Add new Menu");
                     System.out.println("2. View Current list of Menu");
                     System.out.println("3. Update Price");
+                    choice1 = scan.nextInt();
+                    scan.nextLine();
+                        switch (choice1) {
+                        case 1:
+                            System.out.println("=====ADD MENU=====");
+                            System.out.print("Input new menu: ");
+                            String newMenu = scan.next();
+                            System.out.print("Input " + newMenu+ " price: ");
+                            int menuPrice = scan.nextInt();
+                            scan.nextLine();
+                            inventory.put(newMenu, menuPrice);
+                            System.out.println("Menu successfully added!");
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
+                    } while (choice1 != 4);
+                    
+                    
+                    switch (choice1) {
+                        case 1:
+                            System.out.println("=====SYSTEM MENU=====");
+
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
+
+
+                    
+                    
                     break;
+
                 case 2:
                     System.out.println("=====CREATE ORDER=====");
                     break;
