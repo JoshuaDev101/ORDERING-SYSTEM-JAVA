@@ -11,8 +11,8 @@ public class Main {
 
         int choice;
     
-        do { 
-            System.out.println("=====EWAN KO DITO=====");
+        do{ 
+            System.out.println("=====SELLER SYSTEM=====");
             System.out.println("1. View System Menu");
             System.out.println("2. Create Order");
             System.out.println("3. View Recommended Food");
@@ -21,17 +21,17 @@ public class Main {
             System.out.print("Select a number: ");
             choice = scan.nextInt();
             scan.nextLine();
-
-
             switch (choice) {
                 case 1:
                     int choice1;
-                   
+
                     do { 
                     System.out.println("=====SYSTEM MENU=====");
                     System.out.println("1. Add new Menu");
                     System.out.println("2. View Current list of Menu");
                     System.out.println("3. Update Price");
+                    System.out.println("4. Back");
+                    System.out.print("Select a number: ");
                     choice1 = scan.nextInt();
                     scan.nextLine();
                         switch (choice1) {
@@ -45,23 +45,29 @@ public class Main {
                             inventory.put(newMenu, menuPrice);
                             System.out.println("Menu successfully added!");
                             break;
-                        default:
-                            throw new AssertionError();
-                    }
-                    } while (choice1 != 4);
-                    
-                    
-                    switch (choice1) {
-                        case 1:
-                            System.out.println("=====SYSTEM MENU=====");
-
+                        case 2: 
+                                System.out.println("\n=====CURRENT MENU=====");
+                                if (inventory.isEmpty()) {
+                                    System.out.println("No menu items available yet.");
+                                } else {
+                                    for (Map.Entry<String, Integer> item : inventory.entrySet()) {
+                                        System.out.println("==============================================");
+                                        
+                                        System.out.println("- " + item.getKey() + ": " + item.getValue());
+                                        System.out.println("==============================================");
+                                    }
+                                }
+                                break;
+                             case 4:
+                                System.out.println("Returning to main menu...");
                             break;
                         default:
-                            throw new AssertionError();
+                             
+                        System.out.println("Invalid option. Returning to main menu...");
+                        choice1 = 4;
+                        break;
                     }
-
-
-                    
+                    } while (choice1 != 4);
                     
                     break;
 
@@ -84,3 +90,5 @@ public class Main {
         } while (choice != 0);
     }
 }
+
+
